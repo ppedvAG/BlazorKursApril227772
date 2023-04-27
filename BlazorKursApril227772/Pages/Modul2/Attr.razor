@@ -1,0 +1,30 @@
+﻿@page "/attr"
+<h3>Attr</h3>
+<input @bind="wert"/> @wert
+<input @bind-value="wert" @ref="input2" /> @wert
+<input @bind-value="wert" @bind-value:event="oninput" /> @wert
+<input @onkeydown="Keydown" value="@wert"/>
+
+<button @onclick="clickme">clkick </button>
+
+@code {
+    string wert;
+    ElementReference input2;
+
+    void Keydown(KeyboardEventArgs args)
+    {
+        if (args.Key!="A")
+        {
+            wert += args.Key;
+        }
+        else
+        {
+
+        }
+    }
+    void clickme()
+    {
+        input2.FocusAsync();
+
+    }
+}

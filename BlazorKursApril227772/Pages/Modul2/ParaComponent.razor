@@ -1,5 +1,6 @@
 ﻿@page "/rechnung"
 @page "/rechnung/{id:int}"
+
 <h3>ParaComponent @id</h3>
 @Count
 
@@ -9,4 +10,8 @@
     [Parameter]
     [SupplyParameterFromQuery]
     public int Count { get; set; }
+    
+    [Authorize()]
+    void test()
+    {}
 }
