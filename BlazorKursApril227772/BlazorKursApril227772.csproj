@@ -12,6 +12,8 @@
     <Folder Include="Pages\Modul3\" />
     <Folder Include="Pages\Modul4\" />
     <Folder Include="Pages\Modul5\" />
+    <Folder Include="Pages\Modul7\" />
+    <Folder Include="Pages\Modul8\" />
   </ItemGroup>
 
 </Project>
