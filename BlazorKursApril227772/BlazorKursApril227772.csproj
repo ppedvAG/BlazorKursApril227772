@@ -4,6 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Modul6\" />
+    <Folder Include="Pages\Modul3\" />
+    <Folder Include="Pages\Modul4\" />
+    <Folder Include="Pages\Modul5\" />
+  </ItemGroup>
 
 </Project>
