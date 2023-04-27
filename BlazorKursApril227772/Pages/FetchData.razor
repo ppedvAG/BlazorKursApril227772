@@ -44,5 +44,8 @@ else
     protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+
+        //var a = new BlazorKursApril227772.Data.WeatherForecastService();
+        //a.GetForecastAsync()
     }
 }
