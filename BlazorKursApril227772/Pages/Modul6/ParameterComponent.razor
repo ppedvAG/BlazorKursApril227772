@@ -1,0 +1,24 @@
+﻿<h3 @attributes="MyAttributes">@Head</h3>
+@Body
+
+
+@*<div>@ChildContent</div>
+*@
+@code {
+    [Parameter]
+    [EditorRequired]
+    public string MyProperty { get; set; }
+
+
+    [Parameter(CaptureUnmatchedValues =true)]
+    public Dictionary<string,object> MyAttributes { get; set; }
+    [CascadingParameter(Name="Farbe")]
+    public int Farbe { get; set; }
+    //[Parameter]
+    //public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment Head { get; set; }
+    [Parameter]
+    public RenderFragment Body { get; set; }
+
+}
