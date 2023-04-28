@@ -1,0 +1,37 @@
+﻿@page "/todov"
+@inject IHttpClientFactory http
+<h3>ToDoView</h3>
+
+<div class="row">
+    <div class="col">
+        <ul class="list-group list-group-flush">
+            @if (Liste==null)
+            {
+                  <li class="list-group-item alert-danger">keine Daten</li>
+            }
+            else
+            {
+         
+                <Virtualize Items="Liste" OverscanCount="5" Context="item" ItemSize="20">
+                        <li class="list-group-item">
+                            @item.title
+                        </li>
+                </Virtualize>
+               
+         
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    List<ToDoModel> Liste;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var client = http.CreateClient();
+        {
+            Liste = await client.GetFromJsonAsync<List<ToDoModel>>("https://jsonplaceholder.typicode.com/todos");
+        }
+    }
+}
