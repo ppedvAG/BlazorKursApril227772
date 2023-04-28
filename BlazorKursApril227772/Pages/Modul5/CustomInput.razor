@@ -1,0 +1,14 @@
+﻿<input value="@Value" @oninput="@OnInputChange" />
+
+@code {
+    [Parameter]
+    public string Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+    private async Task OnInputChange(ChangeEventArgs args)
+    {
+        Value = (string)args.Value;
+        await ValueChanged.InvokeAsync(Value);
+    }
+}

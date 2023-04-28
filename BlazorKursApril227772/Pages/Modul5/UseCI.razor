@@ -1,0 +1,7 @@
+﻿@page "/ci"
+<h3>UseCI</h3>
+<CustomInput @bind-Value="@Input1" @bind-Value:event="ValueChanged"></CustomInput>
+@Input1
+@code {
+    public string Input1 = "xx";
+}

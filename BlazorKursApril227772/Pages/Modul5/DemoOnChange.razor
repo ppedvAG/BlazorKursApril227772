@@ -1,5 +1,30 @@
-﻿<h3>DemoOnChange</h3>
+﻿@page "/p"
+<h3>PersonEdit</h3>
+<EditForm OnSubmit="save" Model="_person">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
 
+            <InputText class="form-control" @bind-Value="_person.Name" @bind-Value:event="oninput"></InputText>
+            <ValidationMessage For="()=>_person.Name"></ValidationMessage>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">save</button>
+    <ValidationSummary></ValidationSummary>
+</EditForm>
+@_person.Name
+<hr />
+<p>
+ Error: System.ArgumentException: Object of type 'Microsoft.AspNetCore.Components.ChangeEventArgs' cannot be converted to type 'System.String'.
+</p>
 @code {
-
-}
+    Person _person = new Person();
+    void save(EditContext ctx)
+    {
+    }
+    void oninput(ChangeEventArgs e)
+    {
+        
+    }
+ }
