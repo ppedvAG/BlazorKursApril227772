@@ -1,6 +1,6 @@
 ﻿@page "/personedit/{id:int?}"
 <h3>PersonEdit</h3>
-<EditForm OnSubmit="save" Model="_person">
+<EditForm OnSubmit="save" EditContext="_edx">
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
@@ -46,7 +46,13 @@
     {
         if (ctx.Validate())
         {
-            
+
         }
+    }
+    EditContext _edx;
+    protected override void  OnInitialized()
+    {
+        _edx = new EditContext(_person);
+        _edx.SetFieldCssClassProvider(new BootstrapCSSFixFieldCssClassProvider());
     }
 }
