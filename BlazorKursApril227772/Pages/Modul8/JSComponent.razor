@@ -1,0 +1,32 @@
+﻿@page "/js"
+@using RazorClassLibrary1
+@inject IJSRuntime JsRuntime
+<h3>JSComponent</h3>
+<button @onclick="click1">alert</button><br />
+<button @onclick="click2">confirm</button><br />
+<button @onclick="click3">Lib </button>
+<br />
+@code {
+    void click1()
+    {
+        JsRuntime.InvokeVoidAsync("alert", "Hallo Welt");
+
+    }
+
+    async void click2()
+    {
+        var ret=await    JsRuntime.InvokeAsync<bool>("confirm", "wirklich?");
+
+    }
+    void localstorage()
+    {
+        JsRuntime.InvokeVoidAsync("localStorage.setItem", "hannes1", "Passwort");
+    }
+
+    async void click3()
+    {
+        var lib = new ExampleJsInterop(JsRuntime);
+       var daten= await lib.Prompt("Hallo Welt gibt mir daten");
+    }
+    //confirm("wirklich?")
+}
